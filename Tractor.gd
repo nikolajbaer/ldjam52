@@ -5,12 +5,13 @@ export(float) var accel = 7
 export(float) var max_speed = 15
 export(float) var turn_speed = 0.5
 var target = Vector3()
-onready var camera = $Camera
+var camera
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	speed = 0
 	target = Vector3(0,0,0)
+	camera = get_viewport().get_camera()	
 
 func _physics_process(delta):		
 	var forward = global_transform.basis.z
@@ -39,6 +40,8 @@ func _input(event):
 		var p0 = Vector3(0,0,0)
 		var t = (p0-l0).dot(n) / l.dot(n)
 		target = l0 + l * t
-		$Debug.set_global_translation(target)
-		
+		$Debug.set_global_translation(target)	
 
+func _on_Area_area_entered(area):
+	if area.has_method('harvest'):
+		area.harvest()

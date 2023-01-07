@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Tractor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://root.gd" type="Script" id=2]
 [ext_resource path="res://Wheat.tscn" type="PackedScene" id=3]
+[ext_resource path="res://harvest1.mp3" type="AudioStream" id=4]
 
 [node name="Spatial" type="Spatial"]
 script = ExtResource( 2 )
@@ -16,3 +17,14 @@ accel = 50.0
 max_speed = 100.0
 
 [node name="Wheat" parent="." instance=ExtResource( 3 )]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+
+[node name="Gimble" type="Spatial" parent="."]
+
+[node name="Camera" type="Camera" parent="Gimble"]
+transform = Transform( 0.71422, 0.338954, -0.612372, 0.0177891, 0.865843, 0.5, 0.699695, -0.368004, 0.612372, -10, 10, 10 )
+projection = 1
+fov = 20.0
+size = 20.0
