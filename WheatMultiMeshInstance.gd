@@ -5,9 +5,9 @@ var WheatCollide = preload('res://WheatCollide.tscn')
 export(NodePath) onready var meshNode
 export(int) var count = 10000
 export(float) var spacing = 0.5
-export(float) var extent = 100
-var total_harvest
+export(int) var extent = 100
 var stalks
+var total_harvest
 
 func _ready():
 	stalks = []
@@ -36,13 +36,13 @@ func _ready():
 		var x = i%extent * spacing
 		var z = int(i/extent) * spacing
 		var p = Vector3(extent/2-x, 0, extent/2- z )
-		multimesh.set_instance_transform(i, Transform(Basis(), p))
 		stalks.append(p)
+		multimesh.set_instance_transform(i, Transform(Basis(), p))
 		var collider = WheatCollide.instance()
-		collider.global_translation = p
 		collider.connect('harvested',self,'on_harvested',[i])
+		collider.global_translation = p	
 		add_child(collider)
-
+		
 func on_harvested(i):
-	multimesh.set_instance_transform(i,Transform.IDENTITY.scaled(Vector3(0.1,0.1,0.1)))
-
+	multimesh.set_instance_transform(i,Transform().scaled(Vector3(0,0,0)))
+	total_harvest += 1
