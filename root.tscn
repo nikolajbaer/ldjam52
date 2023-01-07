@@ -13,8 +13,10 @@ transform = Transform( 1, 0, 0, 0, -0.561838, 0.827247, 0, -0.827247, -0.561838,
 shadow_enabled = true
 
 [node name="Tractor" parent="." instance=ExtResource( 1 )]
+max_speed = 10.0
 
 [node name="Wheat" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.350106, 0 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
