@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://buttons/playbutton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://buttons/creditsbutton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://buttons/optionsbutton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Fonts/seymour48.tres" type="DynamicFont" id=4]
+[ext_resource path="res://TitleScreen.gd" type="Script" id=5]
+
+[node name="Title Screen" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 5 )
+
+[node name="Menu" type="VBoxContainer" parent="."]
+margin_right = 1028.0
+margin_bottom = 603.0
+
+[node name="Title" type="Label" parent="Menu"]
+margin_right = 1028.0
+margin_bottom = 124.0
+custom_colors/font_color = Color( 0.956863, 0.984314, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0.592157, 0, 1, 1 )
+custom_colors/font_color_shadow = Color( 0.679688, 0.379019, 0.38403, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "Farm Island"
+align = 1
+valign = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Menu"]
+margin_top = 128.0
+margin_right = 1028.0
+margin_bottom = 616.0
+
+[node name="buttons" type="VBoxContainer" parent="Menu/HBoxContainer"]
+margin_right = 1025.0
+margin_bottom = 488.0
+
+[node name="play button" parent="Menu/HBoxContainer/buttons" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1025.0
+margin_bottom = 160.0
+scene_to_load = "res:///root.tscn"
+
+[node name="button" parent="Menu/HBoxContainer/buttons" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 164.0
+margin_right = 1025.0
+margin_bottom = 324.0
+
+[node name="button2" parent="Menu/HBoxContainer/buttons" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 328.0
+margin_right = 1025.0
+margin_bottom = 488.0
