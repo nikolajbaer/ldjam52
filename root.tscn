@@ -12,5 +12,7 @@ transform = Transform( 1, 0, 0, 0, -0.561838, 0.827247, 0, -0.827247, -0.561838,
 shadow_enabled = true
 
 [node name="Tractor" parent="." instance=ExtResource( 1 )]
+accel = 50.0
+max_speed = 100.0
 
 [node name="Wheat" parent="." instance=ExtResource( 3 )]
