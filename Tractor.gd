@@ -10,7 +10,7 @@ var track_distance = false
 var total_distance = 0
 var last_position
 onready var audio = $AudioStreamPlayer
-
+var enabled = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,14 +21,14 @@ func _ready():
 	total_distance = 0
 	last_position = global_translation
 	audio.play()
-	
+	enabled = true
 
 func _physics_process(delta):		
 	var forward = global_transform.basis.z
 	var to_target = target - global_translation
 	var a = forward.signed_angle_to(to_target,Vector3.UP)
 	
-	if Input.is_action_pressed("drive"):
+	if Input.is_action_pressed("drive") and enabled:
 		speed = min(speed+accel*delta,max_speed)
 		if a < 0:
 			rotation.y += turn_speed * delta
