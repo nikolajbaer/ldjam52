@@ -1,14 +1,16 @@
 extends KinematicBody
 
 onready var speed = 0
-export(float) var accel = 7
-export(float) var max_speed = 15
-export(float) var turn_speed = 0.5
+export(float) var accel = 4
+export(float) var max_speed = 6
+export(float) var turn_speed = 1.0
 var target = Vector3()
 var camera
 var track_distance = false
 var total_distance = 0
 var last_position
+onready var audio = $AudioStreamPlayer
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,6 +20,8 @@ func _ready():
 	track_distance = false
 	total_distance = 0
 	last_position = global_translation
+	audio.play()
+	
 
 func _physics_process(delta):		
 	var forward = global_transform.basis.z
@@ -25,7 +29,6 @@ func _physics_process(delta):
 	var a = forward.signed_angle_to(to_target,Vector3.UP)
 	
 	if Input.is_action_pressed("drive"):
-
 		speed = min(speed+accel*delta,max_speed)
 		if a < 0:
 			rotation.y += turn_speed * delta
@@ -36,9 +39,13 @@ func _physics_process(delta):
 	
 	var velocity = forward.normalized() * -speed
 	
-	move_and_slide(velocity*delta,Vector3.UP)
+	audio.pitch_scale =  speed/max_speed + 0.75
+	
+	move_and_slide(velocity,Vector3.UP)
+	
 	if track_distance:
 		total_distance += (global_translation - last_position).length()
+	
 	last_position = global_translation
 	
 func _input(event):
