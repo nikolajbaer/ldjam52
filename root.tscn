@@ -13,18 +13,38 @@ transform = Transform( 1, 0, 0, 0, -0.561838, 0.827247, 0, -0.827247, -0.561838,
 shadow_enabled = true
 
 [node name="Tractor" parent="." instance=ExtResource( 1 )]
-accel = 50.0
-max_speed = 100.0
+accel = 100.0
+max_speed = 200.0
 
 [node name="Wheat" parent="." instance=ExtResource( 3 )]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
+autoplay = true
 
 [node name="Gimble" type="Spatial" parent="."]
 
 [node name="Camera" type="Camera" parent="Gimble"]
-transform = Transform( 0.71422, 0.338954, -0.612372, 0.0177891, 0.865843, 0.5, 0.699695, -0.368004, 0.612372, -10, 10, 10 )
+transform = Transform( 0.71422, 0.338954, -0.612372, 0.0177891, 0.865843, 0.5, 0.699695, -0.368004, 0.612372, -15, 15, 15 )
 projection = 1
 fov = 20.0
-size = 20.0
+size = 25.0
+
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+
+[node name="ProgressBar" type="ProgressBar" parent="Control"]
+anchor_right = 1.0
+
+[node name="Label" type="Label" parent="Control"]
+margin_left = 2.0
+margin_top = 18.0
+margin_right = 124.0
+margin_bottom = 32.0
+text = "Distance Traveled: "
+
+[node name="Distance" type="Label" parent="Control"]
+margin_left = 126.0
+margin_top = 18.0
+margin_right = 211.0
+margin_bottom = 32.0
