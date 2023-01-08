@@ -101,9 +101,9 @@ margin_bottom = 56.0
 text = "Efficiency:"
 
 [node name="Efficiency" type="Label" parent="Control"]
-margin_left = 68.0
+margin_left = 76.0
 margin_top = 42.0
-margin_right = 153.0
+margin_right = 161.0
 margin_bottom = 56.0
 
 [node name="TractorTreads" parent="." instance=ExtResource( 5 )]
