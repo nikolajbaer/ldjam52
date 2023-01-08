@@ -62,7 +62,6 @@ initial_velocity = 3.0
 stream = ExtResource( 3 )
 volume_db = -1.0
 pitch_scale = 0.75
-autoplay = true
 
 [node name="RustlingAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )

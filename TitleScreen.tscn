@@ -64,15 +64,14 @@ shadow_enabled = true
 
 [node name="Tractor" parent="." instance=ExtResource( 7 )]
 controllable = false
+sound_on = false
 
 [node name="Wheat" parent="." instance=ExtResource( 6 )]
 
 [node name="Gimble" type="Spatial" parent="."]
 
 [node name="Camera" type="Camera" parent="Gimble"]
-transform = Transform( 0.768596, 0.0338714, -0.638837, 0, 0.998598, 0.0529459, 0.639734, -0.0406941, 0.767518, -12.082, 3.368, 15 )
-keep_aspect = 0
-v_offset = -2.0
-fov = 23.1
+transform = Transform( 0.71422, 0.338954, -0.612372, 0.0177891, 0.865843, 0.5, 0.699695, -0.368004, 0.612372, -15, 15, 15 )
+projection = 1
+fov = 20.0
 size = 25.0
-near = 0.06

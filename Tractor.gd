@@ -5,6 +5,7 @@ export(float) var accel = 4
 export(float) var max_speed = 6
 export(float) var turn_speed = 1.0
 export(bool) var controllable = true
+export(bool) var sound_on = true
 var target = Vector3()
 var camera
 var track_distance = false
@@ -28,7 +29,8 @@ func _ready():
 	track_distance = false
 	total_distance = 0
 	last_position = global_translation
-	audio.play()
+	if sound_on:
+		audio.play()
 	enabled = true
 	harvest_particles_timeout = 0
 	particles.emitting = false
@@ -63,8 +65,9 @@ func _physics_process(delta):
 		speed = max(0,speed-accel*delta)
 	
 	var velocity = forward.normalized() * -speed
-		
-	audio.pitch_scale =  speed/max_speed + 0.75
+	
+	if sound_on:
+		audio.pitch_scale =  speed/max_speed + 0.75
 	
 	thresher_spinner.rotation.x += delta * (speed/max_speed * -5.0)
 	harvest_particles_timeout += delta

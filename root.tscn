@@ -47,6 +47,7 @@ autoplay = true
 [node name="Camera" type="Camera" parent="Gimble"]
 transform = Transform( 0.71422, 0.338954, -0.612372, 0.0177891, 0.865843, 0.5, 0.699695, -0.368004, 0.612372, -15, 15, 15 )
 projection = 1
+current = true
 fov = 20.0
 size = 25.0
 
@@ -101,9 +102,9 @@ margin_bottom = 56.0
 text = "Efficiency:"
 
 [node name="Efficiency" type="Label" parent="Control"]
-margin_left = 68.0
+margin_left = 76.0
 margin_top = 42.0
-margin_right = 153.0
+margin_right = 161.0
 margin_bottom = 56.0
 
 [node name="Framerate" type="Label" parent="Control"]
