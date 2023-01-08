@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Tractor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://root.gd" type="Script" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://TractorTreads.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Fence.tscn" type="PackedScene" id=6]
 [ext_resource path="res://truck.glb" type="PackedScene" id=7]
+[ext_resource path="res://barn.glb" type="PackedScene" id=8]
+[ext_resource path="res://haystack.glb" type="PackedScene" id=9]
 
 [sub_resource type="PlaneMesh" id=1]
 size = Vector2( 1000, 1000 )
@@ -16,6 +18,12 @@ albedo_color = Color( 0.0666667, 0.235294, 0.0196078, 1 )
 
 [sub_resource type="BoxShape" id=3]
 extents = Vector3( 64, 8, 4 )
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 3.45449, 3.91788, 4.25192 )
+
+[sub_resource type="CylinderShape" id=5]
+radius = 1.19157
 
 [node name="Spatial" type="Spatial"]
 script = ExtResource( 2 )
@@ -133,5 +141,60 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -60.3471, 0, 0 )
 
 [node name="Fence2" parent="." instance=ExtResource( 6 )]
 transform = Transform( 0.000383914, 0, -1, 0, 1, 0, 1, 0, 0.000383914, -22.7925, 0, -98.4877 )
+
+[node name="Barn" type="StaticBody" parent="."]
+transform = Transform( -0.413041, 0, 0.910712, 0, 1, 0, -0.910712, 0, -0.413041, 25.1992, 0, -1.8241 )
+
+[node name="barn" parent="Barn" instance=ExtResource( 8 )]
+transform = Transform( 0.929081, 0, -0.369877, 0, 1, 0, 0.369877, 0, 0.929081, 1.221, 0, -4.191 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Barn"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.66394, 0 )
+shape = SubResource( 4 )
+
+[node name="Haystack" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.0143, -3.8147e-06, -10.7283 )
+
+[node name="haystack" parent="Haystack" instance=ExtResource( 9 )]
+
+[node name="CollisionShape" type="CollisionShape" parent="Haystack"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.948849, 0 )
+shape = SubResource( 5 )
+
+[node name="Haystack2" type="StaticBody" parent="."]
+transform = Transform( 0.226617, 0, 0.973984, 0, 1, 0, -0.973984, 0, 0.226617, 27.4035, -1.90735e-06, -18.041 )
+
+[node name="haystack" parent="Haystack2" instance=ExtResource( 9 )]
+
+[node name="CollisionShape" type="CollisionShape" parent="Haystack2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.948849, 0 )
+shape = SubResource( 5 )
+
+[node name="Haystack3" type="StaticBody" parent="."]
+transform = Transform( -0.712932, 0, 0.701233, 0, 1, 0, -0.701233, 0, -0.712932, 26.1286, -1.90735e-06, -26.9117 )
+
+[node name="haystack" parent="Haystack3" instance=ExtResource( 9 )]
+
+[node name="CollisionShape" type="CollisionShape" parent="Haystack3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.948849, 0 )
+shape = SubResource( 5 )
+
+[node name="Haystack4" type="StaticBody" parent="."]
+transform = Transform( -0.904142, 0, -0.427232, 0, 1, 0, 0.427232, 0, -0.904142, -18.438, -1.90735e-06, -53.3448 )
+
+[node name="haystack" parent="Haystack4" instance=ExtResource( 9 )]
+
+[node name="CollisionShape" type="CollisionShape" parent="Haystack4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.948849, 0 )
+shape = SubResource( 5 )
+
+[node name="Haystack5" type="StaticBody" parent="."]
+transform = Transform( -0.994806, 0, 0.101786, 0, 1, 0, -0.101786, 0, -0.994806, -14.5964, -1.90735e-06, -54.9544 )
+
+[node name="haystack" parent="Haystack5" instance=ExtResource( 9 )]
+
+[node name="CollisionShape" type="CollisionShape" parent="Haystack5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.948849, 0 )
+shape = SubResource( 5 )
 
 [connection signal="tree_exiting" from="." to="." method="_on_Spatial_tree_exiting"]
