@@ -4,6 +4,7 @@ onready var speed = 0
 export(float) var accel = 4
 export(float) var max_speed = 6
 export(float) var turn_speed = 1.0
+export(bool) var controllable = true
 var target = Vector3()
 var camera
 var track_distance = false
@@ -42,7 +43,7 @@ func _physics_process(delta):
 	
 	var a = forward.signed_angle_to(to_target,Vector3.UP)
 	
-	if Input.is_action_pressed("drive") and enabled:
+	if controllable && Input.is_action_pressed("drive") and enabled:
 		if speed < target_speed:
 			speed = min(speed+accel*delta,target_speed)
 		else:

@@ -4,12 +4,10 @@
 [ext_resource path="res://WheatMultiMeshInstance.gd" type="Script" id=2]
 [ext_resource path="res://Wheat.tres" type="Material" id=3]
 [ext_resource path="res://corn.obj" type="ArrayMesh" id=4]
+[ext_resource path="res://dirt-material.tres" type="Material" id=5]
 
 [sub_resource type="PlaneMesh" id=1]
 size = Vector2( 1000, 1000 )
-
-[sub_resource type="SpatialMaterial" id=2]
-albedo_color = Color( 0.25098, 0.168627, 0.0470588, 1 )
 
 [node name="Wheat" type="Spatial"]
 script = ExtResource( 1 )
@@ -18,7 +16,7 @@ script = ExtResource( 1 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.04101 )
 mesh = SubResource( 1 )
 skeleton = NodePath("../..")
-material/0 = SubResource( 2 )
+material/0 = ExtResource( 5 )
 
 [node name="WheatStalk" type="MeshInstance" parent="."]
 visible = false
