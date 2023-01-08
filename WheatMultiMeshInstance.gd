@@ -3,7 +3,7 @@ extends MultiMeshInstance
 var WheatCollide = preload('res://WheatCollide.tscn')
 
 export(Mesh) var mesh
-export(int) var extent = 64
+export(int) var extent = 50
 var count
 export(float) var spacing = 0.5
 
@@ -45,5 +45,5 @@ func _ready():
 		
 		
 func on_harvested(i):
-	multimesh.set_instance_transform(i,Transform(Basis(),stalks[i]).scaled(Vector3(0,0,0)))
+	multimesh.set_instance_transform(i,Transform(Basis(),Vector3(0,-10,0)))
 	total_harvest += 1
