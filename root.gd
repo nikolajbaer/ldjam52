@@ -31,7 +31,9 @@ func _process(delta):
 	else:
 		efficiency_label.text = " - "
 
-	harvest_time += delta
+	if tractor.enabled:
+		harvest_time += delta
+		
 	if wheat.total_harvest >= wheat.multimesh.instance_count:
 		tractor.track_distance = false
 		tractor.enabled = false
