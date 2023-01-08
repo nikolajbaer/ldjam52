@@ -31,12 +31,14 @@ func _process(delta):
 	else:
 		efficiency_label.text = " - "
 
-	harvest_time += delta
+	if tractor.enabled:
+		harvest_time += delta
+		
 	if wheat.total_harvest >= wheat.multimesh.instance_count:
 		tractor.track_distance = false
 		tractor.enabled = false
-		# more efficient, higher score, with time penalty
-		var score = efficiency + (1.0/harvest_time * 3.0) * 100
+		# more efficient, higher score, with time penjalty
+		var score = (efficiency + (1.0/harvest_time * 100.0)) * 100.0
 		$Menu/GameOver.visible = true
 		$Menu/GameOver.text = "GAME OVER\n SCORE: efficiency + time bonus = %0.0f" % score
 		emit_signal("game_over",tractor.total_distance,harvest_time)

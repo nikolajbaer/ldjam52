@@ -1,0 +1,95 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://fence_planks.glb" type="PackedScene" id=1]
+
+[node name="Fence" type="Spatial"]
+
+[node name="fence_planks" type="Spatial" parent="." instance=ExtResource( 1 )]
+transform = Transform( -0.125616, 0, -1.99605, 0, 2, 0, 1.99605, 0, -0.125616, 36.7373, 0, -2.21131 )
+
+[node name="fence_planks2" type="Spatial" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.0524236, 0, -1.99931, 0, 2, 0, 1.99931, 0, 0.0524236, 36.8676, 0, -4.1667 )
+
+[node name="fence_planks3" type="Spatial" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.0524236, 0, -1.99931, 0, 2, 0, 1.99931, 0, 0.0524236, 36.8676, 0, -6.07863 )
+
+[node name="fence_planks4" type="Spatial" parent="." instance=ExtResource( 1 )]
+transform = Transform( -0.0232124, 0, -1.99987, 0, 2, 0, 1.99987, 0, -0.0232124, 36.7807, 0, -7.99057 )
+
+[node name="fence_planks5" type="Spatial" parent="." instance=ExtResource( 1 )]
+transform = Transform( -0.0232124, 0, -1.99987, 0, 2, 0, 1.99987, 0, -0.0232124, 36.7373, 0, -9.94596 )
+
+[node name="fence_planks6" type="Spatial" parent="." instance=ExtResource( 1 )]
+transform = Transform( -0.0232124, 0, -1.99987, 0, 2, 0, 1.99987, 0, -0.0232124, 36.7807, 0, -11.8144 )
+
+[node name="fence_planks7" type="Spatial" parent="." instance=ExtResource( 1 )]
+transform = Transform( -0.0232124, 0, -1.99987, 0, 2, 0, 1.99987, 0, -0.0232124, 36.7807, 0, -13.9436 )
+
+[node name="fence_planks8" type="Spatial" parent="." instance=ExtResource( 1 )]
+transform = Transform( -0.10394, 0, -1.9973, 0, 2, 0, 1.9973, 0, -0.10394, 36.8242, 0, -15.9425 )
+
+[node name="fence_planks9" type="Spatial" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.193463, 0, -1.99062, 0, 2, 0, 1.99062, 0, 0.193463, 36.9111, 0, -17.9413 )
+
+[node name="fence_planks10" type="Spatial" parent="." instance=ExtResource( 1 )]
+transform = Transform( -0.0225841, 0, -1.99987, 0, 2, 0, 1.99987, 0, -0.0225841, 36.8242, 0, -20.0271 )
+
+[node name="fence_planks11" type="Spatial" parent="." instance=ExtResource( 1 )]
+transform = Transform( -0.125616, 0, -1.99605, 0, 2, 0, 1.99605, 0, -0.125616, 36.8242, 0, -22.1128 )
+
+[node name="fence_planks12" type="Spatial" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.0524236, 0, -1.99931, 0, 2, 0, 1.99931, 0, 0.0524236, 36.9545, 0, -24.0682 )
+
+[node name="fence_planks13" type="Spatial" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.0524236, 0, -1.99931, 0, 2, 0, 1.99931, 0, 0.0524236, 36.9545, 0, -25.9801 )
+
+[node name="fence_planks14" type="Spatial" parent="." instance=ExtResource( 1 )]
+transform = Transform( -0.0232124, 0, -1.99987, 0, 2, 0, 1.99987, 0, -0.0232124, 36.8676, 0, -27.8921 )
+
+[node name="fence_planks15" type="Spatial" parent="." instance=ExtResource( 1 )]
+transform = Transform( -0.0232124, 0, -1.99987, 0, 2, 0, 1.99987, 0, -0.0232124, 36.8242, 0, -29.8475 )
+
+[node name="fence_planks16" type="Spatial" parent="." instance=ExtResource( 1 )]
+transform = Transform( -0.0232124, 0, -1.99987, 0, 2, 0, 1.99987, 0, -0.0232124, 36.8676, 0, -31.7159 )
+
+[node name="fence_planks17" type="Spatial" parent="." instance=ExtResource( 1 )]
+transform = Transform( -0.0232124, 0, -1.99987, 0, 2, 0, 1.99987, 0, -0.0232124, 36.8676, 0, -33.8451 )
+
+[node name="fence_planks18" type="Spatial" parent="." instance=ExtResource( 1 )]
+transform = Transform( -0.10394, 0, -1.9973, 0, 2, 0, 1.9973, 0, -0.10394, 36.9111, 0, -35.844 )
+
+[node name="fence_planks19" type="Spatial" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.193463, 0, -1.99062, 0, 2, 0, 1.99062, 0, 0.193463, 36.998, 0, -37.8428 )
+
+[node name="fence_planks20" type="Spatial" parent="." instance=ExtResource( 1 )]
+transform = Transform( -0.0225841, 0, -1.99987, 0, 2, 0, 1.99987, 0, -0.0225841, 36.9111, 0, -39.9286 )
+
+[node name="fence_planks21" type="Spatial" parent="." instance=ExtResource( 1 )]
+transform = Transform( -0.125616, 0, -1.99605, 0, 2, 0, 1.99605, 0, -0.125616, 36.9424, 0, -41.9763 )
+
+[node name="fence_planks22" type="Spatial" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.0524236, 0, -1.99931, 0, 2, 0, 1.99931, 0, 0.0524236, 37.0728, 0, -43.9316 )
+
+[node name="fence_planks23" type="Spatial" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.0524236, 0, -1.99931, 0, 2, 0, 1.99931, 0, 0.0524236, 37.0728, 0, -45.8436 )
+
+[node name="fence_planks24" type="Spatial" parent="." instance=ExtResource( 1 )]
+transform = Transform( -0.0232124, 0, -1.99987, 0, 2, 0, 1.99987, 0, -0.0232124, 36.9859, 0, -47.7555 )
+
+[node name="fence_planks25" type="Spatial" parent="." instance=ExtResource( 1 )]
+transform = Transform( -0.0232124, 0, -1.99987, 0, 2, 0, 1.99987, 0, -0.0232124, 36.9424, 0, -49.7109 )
+
+[node name="fence_planks26" type="Spatial" parent="." instance=ExtResource( 1 )]
+transform = Transform( -0.0232124, 0, -1.99987, 0, 2, 0, 1.99987, 0, -0.0232124, 36.9859, 0, -51.5794 )
+
+[node name="fence_planks27" type="Spatial" parent="." instance=ExtResource( 1 )]
+transform = Transform( -0.0232124, 0, -1.99987, 0, 2, 0, 1.99987, 0, -0.0232124, 36.9859, 0, -53.7086 )
+
+[node name="fence_planks28" type="Spatial" parent="." instance=ExtResource( 1 )]
+transform = Transform( -0.10394, 0, -1.9973, 0, 2, 0, 1.9973, 0, -0.10394, 37.0293, 0, -55.7074 )
+
+[node name="fence_planks29" type="Spatial" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.193463, 0, -1.99062, 0, 2, 0, 1.99062, 0, 0.193463, 37.1162, 0, -57.7063 )
+
+[node name="fence_planks30" type="Spatial" parent="." instance=ExtResource( 1 )]
+transform = Transform( -0.0225841, 0, -1.99987, 0, 2, 0, 1.99987, 0, -0.0225841, 37.0293, 0, -59.792 )
