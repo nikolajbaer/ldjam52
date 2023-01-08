@@ -1,18 +1,27 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Tractor/tractor.glb" type="PackedScene" id=1]
 [ext_resource path="res://Tractor.gd" type="Script" id=2]
 [ext_resource path="res://tractor_idle.ogg" type="AudioStream" id=3]
+[ext_resource path="res://tractor_parts.glb" type="PackedScene" id=4]
 
 [sub_resource type="BoxShape" id=3]
 
 [sub_resource type="SphereMesh" id=6]
 
-[sub_resource type="CubeMesh" id=5]
-size = Vector3( 6, 1, 1 )
-
 [sub_resource type="BoxShape" id=7]
-extents = Vector3( 3, 0.5, 0.5 )
+extents = Vector3( 1.75919, 0.363742, 0.5 )
+
+[sub_resource type="SpatialMaterial" id=8]
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_color = Color( 0.819608, 0.737255, 0.247059, 1 )
+
+[sub_resource type="QuadMesh" id=9]
+material = SubResource( 8 )
+size = Vector2( 0.1, 0.1 )
 
 [node name="Tractor" type="KinematicBody"]
 script = ExtResource( 2 )
@@ -30,12 +39,23 @@ mesh = SubResource( 6 )
 [node name="Area" type="Area" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 2 )
 
-[node name="Mesh" type="MeshInstance" parent="Area"]
-mesh = SubResource( 5 )
-skeleton = NodePath("")
-
 [node name="CollisionShape" type="CollisionShape" parent="Area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.135877, -0.416976 )
 shape = SubResource( 7 )
+
+[node name="tractor_parts" parent="Area" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -0.4 )
+
+[node name="CPUParticles" type="CPUParticles" parent="Area/tractor_parts"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.517918 )
+emitting = false
+amount = 16
+mesh = SubResource( 9 )
+emission_shape = 2
+emission_box_extents = Vector3( 2, 0.25, 0.25 )
+direction = Vector3( 0, 1, 0 )
+gravity = Vector3( 0, -3, 0 )
+initial_velocity = 3.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )

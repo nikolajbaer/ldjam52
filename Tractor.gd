@@ -11,6 +11,10 @@ var total_distance = 0
 var last_position
 onready var audio = $AudioStreamPlayer
 var enabled = false
+onready var thresher_spinner = $Area/tractor_parts/Thresher/Spinner
+onready var tractor_engine = $tractor/body
+onready var particles = $Area/tractor_parts/CPUParticles
+var harvest_particles_timeout = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -22,6 +26,8 @@ func _ready():
 	last_position = global_translation
 	audio.play()
 	enabled = true
+	harvest_particles_timeout = 0
+	particles.emitting = false
 
 func _physics_process(delta):		
 	var forward = global_transform.basis.z
@@ -40,6 +46,11 @@ func _physics_process(delta):
 	var velocity = forward.normalized() * -speed
 	
 	audio.pitch_scale =  speed/max_speed + 0.75
+	
+	thresher_spinner.rotation.x += delta * (speed/max_speed * -5.0)
+	harvest_particles_timeout += delta
+	if harvest_particles_timeout > 0.5:
+		particles.emitting = false
 	
 	move_and_slide(velocity,Vector3.UP)
 	
@@ -60,4 +71,6 @@ func _input(event):
 
 func _on_Area_area_entered(area):
 	if area.has_method('harvest'):
+		particles.emitting = true
+		harvest_particles_timeout = 0
 		area.harvest()
