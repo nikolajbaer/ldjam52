@@ -9,6 +9,7 @@ onready var distance_label = $Control/Distance
 onready var harvest_label = $Control/Harvest
 onready var efficiency_label = $Control/Efficiency
 onready var treads = $TractorTreads
+onready var fps_label = $Control/Framerate
 var tread_counter
 var TREAD_FACTOR = 0.1
 var harvest_time
@@ -48,6 +49,8 @@ func _process(delta):
 		if tread_counter > TREAD_FACTOR:
 			treads.leave_track(tractor.global_translation,tractor.rotation.y)
 			tread_counter = 0
+			
+	fps_label.set_text(str(Engine.get_frames_per_second()))
 
 func _on_Spatial_tree_exiting():
 	$AudioStreamPlayer.stop()
