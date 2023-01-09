@@ -2,5 +2,11 @@
 Music:
 https://www.beepbox.co/#9n31s0kbl00e0ft2ma7g0fj07r1i0o432T0v1u11f0qg01d04w1h0E0T1v1u57f0qwx10g811d08A0F9B4Q0040P9900E2b278T6v1ub8f0q0x10p71d23W7E2b925T2v1u15f10w4qw02d03w0E0b4x8i4x8i4x8h4h4h4h4h4g004wg04wg000000100010p220FE-17ihO97ihRAt97khQAuIhFBV5E5OyeAzH8YAmwna8Wic2Cz-6nspt9vihQk4o2CzW4swhO1784tF784swhO97AxVSMwzw2eAzF8WieAzF8Wic9uCz02ewzE8W3CM0
 
+External Credits
+Kenney.nl for tractor/pickup
+
 Tractor Sound Effect:
 https://freesound.org/people/videog/sounds/149193/
+
+Rustling Leaves:
+https://freesound.org/people/urupin/sounds/402891/
