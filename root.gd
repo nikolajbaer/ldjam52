@@ -74,3 +74,7 @@ func _input(event):
 	if event is InputEventMouseButton and start_instructions.visible:
 		start_instructions.visible = false
 		tractor.enabled = true
+
+
+func _on_RestartButton_pressed():
+	get_tree().change_scene("res://root.tscn")

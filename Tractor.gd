@@ -18,6 +18,7 @@ onready var tractor_engine = $tractor/body
 onready var particles = $Area/tractor_parts/CPUParticles
 onready var rustling_sound = $RustlingAudio
 var harvest_particles_timeout = 0
+var touch_drive
 
 const SPEED_CONTROL_DIST = 10
 
@@ -34,6 +35,7 @@ func _ready():
 	enabled = false
 	harvest_particles_timeout = 0
 	particles.emitting = false
+	touch_drive = false
 	
 func _physics_process(delta):		
 	var forward = global_transform.basis.z
@@ -45,7 +47,7 @@ func _physics_process(delta):
 	
 	var a = forward.signed_angle_to(to_target,Vector3.UP)
 	
-	if controllable && Input.is_action_pressed("drive") and enabled:
+	if controllable && (Input.is_action_pressed("drive") or touch_drive) and enabled:
 		if speed < target_speed:
 			speed = min(speed+accel*delta,target_speed)
 		else:
@@ -84,6 +86,8 @@ func _physics_process(delta):
 	
 func _input(event):
 	if event is InputEventMouseMotion or event is InputEventScreenTouch:
+		if event is InputEventScreenTouch:
+			touch_drive = event.pressed
 		var l0 = camera.project_ray_origin(event.position)
 		var l = camera.project_ray_normal(event.position).normalized()
 		var n = Vector3(0,1,0)
