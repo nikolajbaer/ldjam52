@@ -31,7 +31,7 @@ func _ready():
 	last_position = global_translation
 	if sound_on:
 		audio.play()
-	enabled = true
+	enabled = false
 	harvest_particles_timeout = 0
 	particles.emitting = false
 	

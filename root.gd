@@ -10,6 +10,7 @@ onready var harvest_label = $Control/Harvest
 onready var efficiency_label = $Control/Efficiency
 onready var treads = $TractorTreads
 onready var fps_label = $Control/Framerate
+onready var start_instructions = $Control/StartInstructions
 var tread_counter
 var TREAD_FACTOR = 0.1
 var harvest_time
@@ -35,7 +36,7 @@ func _process(delta):
 	else:
 		efficiency_label.text = " - "
 
-	if tractor.enabled:
+	if tractor.enabled and wheat.total_harvest > 0:
 		harvest_time += delta
 		
 	if wheat.total_harvest >= wheat.multimesh.instance_count:
@@ -68,3 +69,8 @@ func _on_Button_pressed():
 		
 func highScoresAdded(scoreText):
 	get_tree().change_scene("res://HighScores.tscn")
+
+func _input(event):
+	if event is InputEventMouseButton and start_instructions.visible:
+		start_instructions.visible = false
+		tractor.enabled = true

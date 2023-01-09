@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Tractor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://root.gd" type="Script" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://haystack.glb" type="PackedScene" id=9]
 [ext_resource path="res://silo.glb" type="PackedScene" id=10]
 [ext_resource path="res://Grass.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Images/farmer.png" type="Texture" id=12]
 
 [sub_resource type="BoxShape" id=3]
 extents = Vector3( 64, 8, 4 )
@@ -136,7 +137,42 @@ margin_right = 1020.0
 margin_bottom = 18.0
 align = 2
 
+[node name="StartInstructions" type="Control" parent="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Panel" type="Panel" parent="Control/StartInstructions"]
+margin_left = 119.0
+margin_top = 101.0
+margin_right = 633.0
+margin_bottom = 337.0
+
+[node name="Sprite" type="Sprite" parent="Control/StartInstructions"]
+position = Vector2( 177, 150 )
+scale = Vector2( 0.172363, 0.160782 )
+texture = ExtResource( 12 )
+
+[node name="Label" type="Label" parent="Control/StartInstructions"]
+margin_left = 230.0
+margin_top = 110.0
+margin_right = 563.0
+margin_bottom = 226.0
+rect_scale = Vector2( 1.06143, 1.04517 )
+text = "Alright City Slicker, 
+I need ever last stalk of wheat harvested, but don't
+take all day. If you drive a short path quickly, you
+might just get a permanent job here.
+
+To control the tractor, click and hold in front of the
+tractor to go forward. Speed and turning radius changes 
+depending on how close you are to the tractor.
+
+The clock starts when you hit the wheat!
+
+Click to get started!"
+
 [node name="TractorTreads" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, 0 )
 
 [node name="Bounds" type="StaticBody" parent="."]
 
@@ -174,7 +210,7 @@ transform = Transform( -0.413041, 0, 0.910712, 0, 1, 0, -0.910712, 0, -0.413041,
 transform = Transform( 0.929081, 0, -0.369877, 0, 1, 0, 0.369877, 0, 0.929081, 1.221, 0, -4.191 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Barn"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.66394, 0 )
+transform = Transform( 0.931686, 0, -0.363268, 0, 1, 0, 0.363268, 0, 0.931686, 1.33753, 3.64001, -4.3415 )
 shape = SubResource( 4 )
 
 [node name="Haystack" type="StaticBody" parent="."]
