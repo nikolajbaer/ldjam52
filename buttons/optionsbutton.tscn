@@ -5,4 +5,4 @@
 [node name="button" instance=ExtResource( 1 )]
 
 [node name="buttontext" parent="." index="0"]
-text = "options"
+text = "high scores"

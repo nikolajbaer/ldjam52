@@ -83,7 +83,7 @@ func _physics_process(delta):
 	last_position = global_translation
 	
 func _input(event):
-	if event is InputEventMouseMotion:
+	if event is InputEventMouseMotion or event is InputEventScreenTouch:
 		var l0 = camera.project_ray_origin(event.position)
 		var l = camera.project_ray_normal(event.position).normalized()
 		var n = Vector3(0,1,0)

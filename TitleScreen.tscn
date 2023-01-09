@@ -50,6 +50,7 @@ anchor_bottom = 0.0
 margin_top = 164.0
 margin_right = 1025.0
 margin_bottom = 324.0
+scene_to_load = "res:///HighScores.tscn"
 
 [node name="button2" parent="Menu/HBoxContainer/buttons" instance=ExtResource( 2 )]
 anchor_right = 0.0

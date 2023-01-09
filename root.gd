@@ -14,6 +14,9 @@ var tread_counter
 var TREAD_FACTOR = 0.1
 var harvest_time
 
+var _scores_js_callback = JavaScript.create_callback(self, "highScoresAdded") # This reference must be kept
+var score = null
+
 func _ready():
 	tread_counter = 0
 	harvest_time = 0
@@ -39,8 +42,8 @@ func _process(delta):
 		tractor.track_distance = false
 		tractor.enabled = false
 		# more efficient, higher score, with time penjalty
-		var score = (efficiency + (1.0/harvest_time * 100.0)) * 100.0
-		$Menu/GameOver.visible = true
+		score = (efficiency + (1.0/harvest_time * 100.0)) * 100.0
+		$Menu.visible = true
 		$Menu/GameOver.text = "GAME OVER\n SCORE: efficiency + time bonus = %0.0f" % score
 		emit_signal("game_over",tractor.total_distance,harvest_time)
 	
@@ -54,3 +57,14 @@ func _process(delta):
 
 func _on_Spatial_tree_exiting():
 	$AudioStreamPlayer.stop()
+
+
+func _on_Button_pressed():
+	if OS.has_feature('JavaScript'):
+		var scores = JavaScript.get_interface("scores")
+		scores.addScore($Menu/TextEdit.text,score,tractor.total_distance,harvest_time,_scores_js_callback)
+	else:
+		print("submit scores for web only",$Menu/TextEdit.text,score,tractor.total_distance,harvest_time)
+		
+func highScoresAdded(scoreText):
+	get_tree().change_scene("res://HighScores.tscn")
